@@ -1,0 +1,28 @@
+body {
+    width: 320px;
+}
+
+.todo-item .btn-remove-todo {
+    display:none;
+}
+
+.todo-item:hover .btn-remove-todo {
+    display: block;
+}
+
+.todo-item .todo-content {
+    font-weight: bold;
+}
+.todo-item.completed .todo-content {
+    color:darkgray;
+    font-weight: normal;
+    text-decoration: line-through;
+}
+
+#todo-list {
+    margin-bottom: 10px;
+}
+
+#btn-remove-all {
+    margin-bottom: 10px;
+}
