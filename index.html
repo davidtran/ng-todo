@@ -10,7 +10,7 @@
 
         <div class='row'>
             <div class='col-md-12'>
-                <h5>{{todoList.length}} pending tasks</h5>
+                <h5>{{ (todoList | filter: {completed:false}).length}} pending task(s)</h5>
                 <form id='todo-form' ng-submit='add()'>
                     <div class="form-group">
                         <input type='text' id='new-todo' ng-model='newContent' class="form-control" placeholder="What you need to do ?"/>
@@ -20,7 +20,7 @@
         </div>
 
         <div class='row' id="todo-list">
-            <div class='todo-item col-md-12' ng-repeat='todo in todoList | orderBy: createdAt' ng-class='{completed: todo.completed}'>
+            <div class='todo-item col-md-12' ng-repeat='todo in todoList track by todo.id| orderBy: createdAt' ng-class='{completed: todo.completed}'>
                 <input type='checkbox' ng-model='todo.completed' ng-click='toggleCompleted()'/>
                 <span class='todo-content'>{{todo.content}}</span>
                 <a class='btn-remove-todo pull-right' ng-click='remove(todo)'><i class='glyphicon glyphicon-remove'></i> </a>
